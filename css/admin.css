@@ -1,0 +1,496 @@
+/* =========================
+   ADMIN PANEL
+========================= */
+
+.admin-page {
+    width: 100%;
+    max-width: 1440px;
+
+    margin: 0 auto;
+    padding: 70px 30px;
+}
+
+/* Header */
+
+.admin-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+
+    margin-bottom: 10px;
+    padding-bottom: 35px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.admin-header__subtitle,
+.admin-section__label {
+    margin: 0 0 12px;
+
+    color: var(--accent-color);
+
+    font-size: 12px;
+    letter-spacing: 0.2em;
+}
+
+.admin-header h1 {
+    margin: 0;
+
+    font-size: clamp(45px, 6vw, 75px);
+}
+
+.admin-header__description {
+    margin: 12px 0 0;
+
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 17px;
+}
+
+.admin-header__back {
+    padding: 12px 22px;
+
+    color: #fff;
+    border: 1px solid var(--accent-color);
+    border-radius: 25px;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+.admin-header__back:hover {
+    background: var(--accent-color);
+    box-shadow: 0 0 20px rgba(5, 133, 238, 0.3);
+}
+
+
+/* Sections */
+
+.admin-section {
+    margin-bottom: 80px;
+}
+
+.admin-section__heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 28px;
+}
+
+.admin-section__heading h2 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.admin-section__count {
+    padding: 8px 14px;
+
+    color: var(--accent-color);
+    border: 1px solid rgba(5, 133, 238, 0.5);
+    border-radius: 20px;
+
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+}
+
+
+/* Add concert form */
+
+.admin-form {
+    max-width: 900px;
+    padding: 35px;
+
+    background: #080a12;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.25);
+}
+
+.admin-form__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.admin-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    min-width: 0;
+}
+
+.admin-field--full {
+    grid-column: 1 / -1;
+}
+
+.admin-field label {
+    color: #b9dfff;
+    font-size: 15px;
+}
+
+.admin-field input,
+.admin-field textarea {
+    width: 100%;
+    min-width: 0;
+
+    padding: 14px 16px;
+
+    color: #fff;
+    background: #111522;
+
+    border: 1px solid #303747;
+    border-radius: 7px;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+.admin-field textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.admin-field input:focus,
+.admin-field textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 12px rgba(5, 133, 238, 0.2);
+}
+
+.admin-field input[type="datetime-local"] {
+    color-scheme: dark;
+}
+
+.admin-form>.admin-btn {
+    margin-top: 30px;
+}
+
+
+/* Buttons */
+
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 24px;
+
+    color: #fff;
+    background: transparent;
+
+    border: 1px solid var(--accent-color);
+    border-radius: 25px;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.admin-btn:hover {
+    background: var(--accent-color);
+    box-shadow: 0 0 18px rgba(5, 133, 238, 0.3);
+}
+
+.admin-btn--delete {
+    border-color: #d94b67;
+}
+
+.admin-btn--delete:hover {
+    background: #d94b67;
+    box-shadow: 0 0 18px rgba(217, 75, 103, 0.25);
+}
+
+/* Сетка карточек */
+
+.admin-concerts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+    width: 100%;
+    padding: 12px 2px 22px;
+}
+
+.admin-concerts-grid .concert-card {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 650px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+
+    background: transparent;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Контент карточки */
+.admin-concerts-grid .concert-card__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+
+    padding: 25px;
+}
+
+.admin-concerts-grid .concert-card__content h4 {
+    margin: 0 0 12px;
+    padding: 0;
+
+    color: var(--text-color);
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+.admin-concerts-grid .concert-card__content p {
+    padding-left: 0;
+}
+
+.admin-concerts-grid .concert-card__content .concert-card__description {
+    margin: 0 0 16px;
+
+    color: var(--text-color);
+    opacity: 0.7;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.concert-card:hover{
+    border: 1px solid var(--accent-color);
+}
+
+/* Кнопки */
+
+.admin-concert__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    width: 100%;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.admin-concert__actions form {
+    margin: 0;
+}
+
+.admin-concert__edit,
+.admin-concert__delete {
+    padding: 14px 28px;
+    
+    color: var(--text-color);
+
+    border: 1px solid var(--accent-color);
+    border-radius: 30px;
+    background-color: transparent;
+
+    font-family: var(--font-family);
+    font-size: 18px;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    transition:
+    box-shadow 0.25s ease;
+}
+
+.admin-concert__edit:hover {
+    box-shadow:
+            0 0 25px var(--accent-color);
+}
+
+/* Кнопка удаления */
+
+.admin-concert__delete {
+    border-color: #d94b67;
+}
+
+.admin-concert__delete:hover {
+    box-shadow: 0 0 25px rgba(217, 75, 103, 1);
+}
+
+/* Gallery */
+
+.admin-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.admin-photo {
+    min-width: 0;
+    overflow: hidden;
+
+    background: #080a12;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+
+    transition: 0.3s ease;
+}
+
+.admin-photo:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 22px rgba(5, 133, 238, 0.12);
+}
+
+.admin-photo__image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+
+    overflow: hidden;
+    background: #111522;
+}
+
+.admin-photo__image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.admin-photo:hover .admin-photo__image img {
+    transform: scale(1.05);
+}
+
+.admin-photo__content {
+    padding: 22px;
+}
+
+.admin-photo__content h3 {
+    margin: 0 0 12px;
+
+    color: #fff;
+    font-size: 20px;
+}
+
+.admin-photo__content p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+}
+
+.admin-photo__content .admin-btn {
+    margin-top: 10px;
+}
+
+
+/* Notifications */
+
+.admin-notice {
+    margin: 15px 0 25px;
+    padding: 14px 18px;
+
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.admin-notice--success {
+    color: #7ee5ae;
+    background: rgba(50, 200, 120, 0.08);
+    border: 1px solid rgba(50, 200, 120, 0.3);
+}
+
+.admin-notice--error {
+    color: #ff8585;
+    background: rgba(255, 50, 50, 0.08);
+    border: 1px solid rgba(255, 80, 80, 0.3);
+}
+
+.admin-empty {
+    padding: 30px;
+
+    color: rgba(255, 255, 255, 0.5);
+    background: #080a12;
+
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+
+/* Footer */
+
+.admin-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding: 30px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.admin-footer p {
+    color: var(--accent-color);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+}
+
+.admin-footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.admin-footer a:hover {
+    color: var(--accent-color);
+}
+
+/* Форма добавления концерта в админ-панели */
+
+.admin-page .edit-page {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 100%;
+    padding: 40px 0;
+
+    background:
+        radial-gradient(ellipse at 20% 40%,
+            rgba(5, 133, 238, 0.12),
+            transparent 60%);
+}
+
+.admin-page .edit {
+    width: 100%;
+    max-width: 700px;
+    margin: 0;
+}

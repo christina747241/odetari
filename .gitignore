@@ -1,0 +1,27 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# User uploaded photos
+/uploads/gallery/*
+!/uploads/gallery/.gitkeep
+
+/uploads/profiles/*
+!/uploads/profiles/.gitkeep
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Editor files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
